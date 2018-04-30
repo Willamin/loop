@@ -1,6 +1,6 @@
 # loop
 
-Reimplements the index in the top level `loop` method
+Reimplements the index in the top level `loop` method, as was remove in https://github.com/crystal-lang/crystal/pull/6026.
 
 ## Installation
 
@@ -16,13 +16,22 @@ dependencies:
 
 ```crystal
 require "loop"
+
+# loop continues to work without a block arg
+loop do
+  puts "hello"
+end
+
+# loop now works with the iteration number passed as the block arg
+loop do |iteration|
+  puts iteration
+end
+
+# loop also now can receive an argument for where to start the iteration counter
+loop(5) do |iteration|
+  puts iteration
+end
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
